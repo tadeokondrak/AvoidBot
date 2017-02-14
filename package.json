@@ -11,6 +11,7 @@
     "url": "git+ssh://git@github.com/TadeoKondrak/AvoidBot.git"
   },
   "author": "Tadeo Kondrak",
+  "contributors": [ "Aaron Hill" ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/TadeoKondrak/AvoidBot/issues"

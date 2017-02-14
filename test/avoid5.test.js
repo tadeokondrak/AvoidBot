@@ -59,7 +59,7 @@ describe('avoid5.stripLinks', function() {
     'BEFORE <a href="[link]">HTML-style</a> AFTER',
     'BEFORE [Markdown-style]([link]) AFTER',
   ];
-  
+
   scenarios.forEach(function(scenario) {
     links.forEach(function(link) {
       let text = scenario.replace('[link]', link);
