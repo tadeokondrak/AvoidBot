@@ -32,7 +32,7 @@ function stripURLs(text) {
 }
 
 function detectFifthGlyphs(text) {
-  const regex = /(\*\*)?[eĕêěɇėẹëèéēẽęæœɛɜəǝɘεеєэEĔÊĚɆĖẸËÈÉĒẼĘÆŒƐƏƎΕЕЄЭ€]+(\*\*)?/g;
+  const regex = /(\*\*)?[eĕêěɇėẹëèéēẽęæœɛɜəǝɘεеєэEĔÊĚɆĖẸËÈÉĒẼĘÆŒƐƏƎΕЕЄЭ€]+\1?/g;  
   var matches = text.match(regex) || [];
   var counts = matches.map(x => x.replace(/\*/g, '').length);
   return {
