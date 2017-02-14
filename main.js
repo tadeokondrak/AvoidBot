@@ -32,12 +32,14 @@ function stripURLs(text) {
 }
 
 function detectFifthGlyphs(text) {
-  const regex = /(\*\*)?[eĕêěɇėẹëèéēẽęæœɛɜəǝɘεеєэEĔÊĚɆĖẸËÈÉĒẼĘÆŒƐƏƎΕЕЄЭ€]\1/g;
+  const regex = /(\*\*)?[eĕêěɇėẹëèéēẽęæœɛɜəǝɘεеєэEĔÊĚɆĖẸËÈÉĒẼĘÆŒƐƏƎΕЕЄЭ€]+(\*\*)?/g;
   var matches = text.match(regex) || [];
+  var counts = matches.map(x => x.replace(/\*/g, '').length);
   return {
-    count: matches.length,
+    totalCount: counts.reduce(function(a,b) { return a + b }, 0),
+    longestRun: Math.max.apply(null, counts),
     bold: matches.filter(x => x.startsWith('*')).length > 0
-  };
+  }
 }
 
 function replaceFifthGlyphs(text) {
