@@ -35,7 +35,7 @@ function stripURLs(text) {
 }
 
 function stripDiscordMentions(text) {
-  return text.replace(regexDiscord, '[mention]'); 
+  return text.replace(regexDiscord, ''); 
 }
 
 function detectFifthGlyphs(text) {
