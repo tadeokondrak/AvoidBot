@@ -14,7 +14,7 @@ client.on('message', message => {
   }
   var stripped = stripURLs(message.content);
   var fifthglyphs = detectFifthGlyphs(stripped);
-  if (fifthglyphs.count > 5 || fifthglyphs.bold) {
+  if (fifthglyphs.totalCount > 8 || fifthglyphs.longestRun > 2 || fifthglyphs.bold) {  
     message.channel.sendMessage('Too many fifthglyphs, or a bold glyph. Auto-kick.');
     message.author.send('Too many fifthglyphs, or a bold glyph. Auto-kick.');
     client.channels.get('280536335536881664').sendMessage(message.author + ' was kicked.');
