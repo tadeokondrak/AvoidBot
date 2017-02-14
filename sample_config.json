@@ -1,0 +1,5 @@
+{
+  "token": "your discord bot token",
+  "ignoredChannels": ["id here", "id 2 here"],
+  "logChannel": "channel id here"
+}
