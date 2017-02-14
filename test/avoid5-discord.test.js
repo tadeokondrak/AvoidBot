@@ -53,6 +53,13 @@ describe('avoid5-discord.handleMessage', function() {
     expect(message.reply).not.to.have.been.called;
   });
 
+  it('does nothing when the message contains mentions with fifthglyphs', function() {
+    message.content = 'blah @here @everyone @here @everyone blah';
+    avoid5discord.handleMessage(message);
+    expect(message.member.kick).not.to.have.been.called;
+    expect(message.reply).not.to.have.been.called;
+  });
+
   const scenarios = [
     { description: 'more fifthglyphs than the threshold', text: 'The speedy beige vulpine jumped over the sleeping canine.' },
     { description: 'a long run of fifthglyphs', text: 'Eeek!' },
@@ -88,5 +95,24 @@ describe('avoid5-discord.handleMessage', function() {
     avoid5discord.handleMessage(message);
     expect(message.member.kick).not.to.have.been.called;
     expect(message.reply).to.have.been.calledWithMatch(/^fifthglyph found:/i);
+  });
+
+  it('replies without any mentions included', function() {
+    message.content = '@here @everyone <@1234567890><@!1234567890><#1234567890><@&1234567890> message';
+    avoid5discord.handleMessage(message);
+    expect(message.member.kick).not.to.have.been.called;
+    expect(message.reply).to.have.been.calledWithMatch(/^fifthglyph found:\s*m■ssag■/i);
+    
+  });
+});
+
+describe('avoid5-discord.stripMentions', function() {
+  const mentions = [ '@here', '@everyone', '<@1234567890>', '<@!1234567890>', '<#1234567890>', '<@&1234567890>' ];
+  mentions.forEach(function(mention) {
+    let text = 'Before ' + mention + ' After';
+    context('when provided "' + text + '" as input', function() {
+      let subject = avoid5discord.stripMentions(text);
+      it ('removes the mention', function() { expect(subject).to.equal('Before After'); });
+    });
   });
 });
