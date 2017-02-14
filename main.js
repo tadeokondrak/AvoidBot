@@ -1,7 +1,11 @@
 const Discord = require('discord.js');
 const client  = new Discord.Client();
 const config  = require('./config.json');
-
+const regexURL = /[a-z][\da-z+.-]*:\/\/(?:[\da-z._~%!$&'(*+,;=:@\/?-]|\)(?!\s))+/ig;
+const regex = /(\*\*)?[eĕêěɇėẹëèéēẽęæœɛɜəǝɘεеєэEĔÊĚɆĖẸËÈÉĒẼĘÆŒƐƏƎΕЕЄЭ€]+\1?/g;
+const regexSmall = /[eĕêěɇėẹëèéēẽęæœɛɜəǝɘεеєэ]/g
+const regexLarge = /[EĔÊĚɆĖẸËÈÉĒẼĘÆŒƐƏƎΕЕЄЭ€]/g;
+const regexDiscord = /@here|@everyone/g
 client.login(config.token);
 
 client.on('ready', () => {
@@ -27,12 +31,14 @@ client.on('message', message => {
 });
 
 function stripURLs(text) {
-  const regexURL = /[a-z][\da-z+.-]*:\/\/(?:[\da-z._~%!$&'(*+,;=:@\/?-]|\)(?!\s))+/ig;
   return text.replace(regexURL, '[link]');
 }
 
+function stripDiscordMentions(text) {
+  return text.replace(regexDiscord, ''); 
+}
+
 function detectFifthGlyphs(text) {
-  const regex = /(\*\*)?[eĕêěɇėẹëèéēẽęæœɛɜəǝɘεеєэEĔÊĚɆĖẸËÈÉĒẼĘÆŒƐƏƎΕЕЄЭ€]+\1?/g;  
   var matches = text.match(regex) || [];
   var counts = matches.map(x => x.replace(/\*/g, '').length);
   return {
@@ -43,9 +49,5 @@ function detectFifthGlyphs(text) {
 }
 
 function replaceFifthGlyphs(text) {
-  const regexSmall = /[eĕêěɇėẹëèéēẽęæœɛɜəǝɘεеєэ]/g;
-  const regexLarge = /[EĔÊĚɆĖẸËÈÉĒẼĘÆŒƐƏƎΕЕЄЭ€]/g;
   return text.replace(regexSmall, '■').replace(regexLarge, '█');
 }
-
-
