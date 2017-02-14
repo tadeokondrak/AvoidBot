@@ -16,7 +16,7 @@ client.on('message', message => {
   if (message.author.bot || config.ignoredChannels.includes(message.channel.id)) {
     return;
   }
-  var stripped = stripURLs(message.content);
+  var stripped = stripDiscordMentions(stripURLs(message.content));
   var fifthglyphs = detectFifthGlyphs(stripped);
   if (fifthglyphs.totalCount > 8 || fifthglyphs.longestRun > 2 || fifthglyphs.bold) {  
     message.channel.sendMessage('Too many fifthglyphs, or a bold glyph. Auto-kick.');
@@ -35,7 +35,7 @@ function stripURLs(text) {
 }
 
 function stripDiscordMentions(text) {
-  return text.replace(regexDiscord, ''); 
+  return text.replace(regexDiscord, '[mention]'); 
 }
 
 function detectFifthGlyphs(text) {
