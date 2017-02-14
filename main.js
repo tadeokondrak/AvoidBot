@@ -25,7 +25,7 @@ client.on('message', message => {
     message.member.kick();
     return;
   }
-  if (fifthglyphs.totalCount > 0 && !message.content.match(/@(?:here|everyone)/i)) {
+  if (fifthglyphs.totalCount > 0) {
     message.reply('fifthglyph found: ' + replaceFifthGlyphs(stripped));
   }
 });
