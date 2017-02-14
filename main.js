@@ -9,7 +9,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-  if (message.author.bot || message.channel.id == '280536335536881664') {
+  if (message.author.bot || config.ignoredChannels.includes(message.channel.id)) {
     return;
   }
   var stripped = stripURLs(message.content);
@@ -17,7 +17,7 @@ client.on('message', message => {
   if (fifthglyphs.totalCount > 8 || fifthglyphs.longestRun > 2 || fifthglyphs.bold) {  
     message.channel.sendMessage('Too many fifthglyphs, or a bold glyph. Auto-kick.');
     message.author.send('Too many fifthglyphs, or a bold glyph. Auto-kick.');
-    client.channels.get('280536335536881664').sendMessage(message.author + ' was kicked.');
+    client.channels.get(config.logChannel).sendMessage(message.author + ' was kicked.');
     message.member.kick();
     return;
   }
