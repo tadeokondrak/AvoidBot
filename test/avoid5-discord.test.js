@@ -12,11 +12,11 @@ describe('avoid5-discord.handleMessage', function() {
     message = {
       author: { bot: false, send: sinon.spy(), toString: () => 'AUTHOR' },
       channel: { id: 'TEST', sendMessage: sinon.spy() },
-      client: { channels: { get: function(id) { return logChannel; } } },
       member: { kick: sinon.spy() },
       reply: sinon.spy()
     };
-    sinon.spy(message.client.channels, 'get');
+    Discord = { channels: { get: function(id) { return logChannel; } } }
+    sinon.spy(Discord.channels, 'get');
   });
   afterEach(function() {
     global.config = null;
@@ -82,7 +82,7 @@ describe('avoid5-discord.handleMessage', function() {
         expect(message.author.send).to.have.been.calledWithMatch(response);
       });
       it('logs the kick action', function() {
-        expect(message.client.channels.get).to.have.been.calledWith('LOGGING');
+        expect(Discord.channels.get).to.have.been.calledWith('LOGGING');
         expect(logChannel.sendMessage).to.have.been.calledWithMatch(/^AUTHOR was kicked.$/i);
       });
       it('kicks the user', function() { expect(message.member.kick).to.have.been.called });

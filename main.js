@@ -8,6 +8,7 @@ const Discord = new DiscordJS.Client();
 const Reddit   = require('snoowrap');
 
 const config  = require('./config.json');
+
 global.config = config;
 
 Discord.login(config.token);
