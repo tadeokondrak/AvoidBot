@@ -2,16 +2,18 @@
  * main.js -- Program entry point.
  */
 
-const Discord = require('discord.js');
-const client  = new Discord.Client();
+const DiscordJS = require('Discord.js');
+const Discord = new DiscordJS.Client();
 
-const config = require('./config.json');
+const Reddit   = require('snoowrap');
+
+const config  = require('./config.json');
 global.config = config;
 
-client.login(config.token);
+Discord.login(config.token);
 
-client.on('ready', () => {
+Discord.on('ready', () => {
   console.log('Bot started.');
 });
 
-client.on('message', require('./lib/avoid5-discord.js').handleMessage);
+Discord.on('message', require('./lib/avoid5-discord.js').handleMessage);
