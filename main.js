@@ -2,7 +2,7 @@
  * main.js -- Program entry point.
  */
 
-const DiscordJS = require('Discord.js');
+const DiscordJS = require('discord.js');
 const Discord = new DiscordJS.Client();
 
 const Reddit   = require('snoowrap');
