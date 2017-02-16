@@ -1,3 +1,5 @@
+const CI = process.env.CI === 'true';
+
 const gulp = require('gulp'),
       mocha = require('gulp-mocha'),
       watch = require('gulp-watch'),
@@ -10,7 +12,7 @@ gulp.task('test', () =>
   gulp.src(tests, { read: false })
     .pipe(mocha({
       require: ['./test/setup.js'],
-      reporter: 'nyan'
+      reporter: CI ? 'spec' : 'nyan'
     }))
 );
 
