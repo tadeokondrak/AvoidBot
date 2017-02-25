@@ -1,5 +1,17 @@
 {
-  "token": "your discord bot token",
-  "ignoredChannels": ["id here", "id 2 here"],
-  "logChannel": "channel id here"
+  "discord": {
+    "token": "your discord bot token",
+    "ignoredChannels": ["id here", "id 2 here"],
+    "logChannel": "channel id here"
+  },
+  "reddit": {
+    "credentials": {
+      "userAgent": "AvoidBot - A bot that assists you in avoiding fifthglyphs.",
+      "clientId": "client id - get this from oauth",
+      "clientSecret": "client secret - get this from oauth",
+      "username": "username",
+      "password": "password"
+    },
+    "subreddit": ""
+  }
 }

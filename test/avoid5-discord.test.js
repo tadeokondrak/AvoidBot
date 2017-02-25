@@ -5,8 +5,10 @@ describe('avoid5-discord.handleMessage', function() {
   beforeEach(function() {
     sandbox = sinon.sandbox.create();
     global.config = {
-      ignoredChannels: [ 'IGNORE' ],
-      logChannel: 'LOGGING'
+      discord: {
+        ignoredChannels: [ 'IGNORE' ],
+        logChannel: 'LOGGING'
+      }
     };
     logChannel = { sendMessage: sinon.spy() };
     message = {
