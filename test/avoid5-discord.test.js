@@ -13,9 +13,10 @@ describe('avoid5-discord.handleMessage', function() {
       author: { bot: false, send: sinon.spy(), toString: () => 'AUTHOR' },
       channel: { id: 'TEST', sendMessage: sinon.spy() },
       member: { kick: sinon.spy() },
-      reply: sinon.spy()
+      reply: sinon.spy(),
+      client : { channels: { get: function(id) { return logChannel; } } }
     };
-    Discord = { channels: { get: function(id) { return logChannel; } } }
+
     sinon.spy(Discord.channels, 'get');
   });
   afterEach(function() {
@@ -102,7 +103,7 @@ describe('avoid5-discord.handleMessage', function() {
     avoid5discord.handleMessage(message);
     expect(message.member.kick).not.to.have.been.called;
     expect(message.reply).to.have.been.calledWithMatch(/^fifthglyph found:\s*m■ssag■/i);
-    
+
   });
 });
 
