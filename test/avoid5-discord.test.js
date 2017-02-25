@@ -97,14 +97,14 @@ describe('avoid5-discord.handleMessage', function() {
     message.content = 'A **few** accidental fifthglyphs.';
     avoid5discord.handleMessage(message);
     expect(message.member.kick).not.to.have.been.called;
-    expect(message.reply).to.have.been.calledWithMatch(/^fifthglyph found:/i);
+    expect(message.reply).to.have.been.calledWithMatch(/^fifthglyphs found:/i);
   });
 
   it('replies without any mentions included', function() {
     message.content = '@here @everyone <@1234567890><@!1234567890><#1234567890><@&1234567890> message';
     avoid5discord.handleMessage(message);
     expect(message.member.kick).not.to.have.been.called;
-    expect(message.reply).to.have.been.calledWithMatch(/^fifthglyph found:\s*m■ssag■/i);
+    expect(message.reply).to.have.been.calledWithMatch(/^fifthglyphs found:\s*m■ssag■/i);
 
   });
 });
