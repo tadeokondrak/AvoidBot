@@ -1,7 +1,7 @@
 # AvoidBot
-[![Build Status](https://travis-ci.org/TadeoKondrak/AvoidBot.svg?branch=master)](https://travis-ci.org/TadeoKondrak/AvoidBot)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-
+[![Build Status](https://img.shields.io/travis/TadeoKondrak/AvoidBot.svg?style=flat-square)](https://travis-ci.org/TadeoKondrak/AvoidBot)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+[![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
 A bot that assists you in avoiding fifthglyphs.
 
 # Installation
