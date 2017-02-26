@@ -1,3 +1,5 @@
+/* eslint-env node, mocha */
+/* global expect */
 var avoid5 = require('../lib/avoid5.js');
 
 describe('avoid5.detect', function () {

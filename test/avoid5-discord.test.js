@@ -1,3 +1,5 @@
+/* eslint-env node, mocha */
+/* global sinon, expect */
 const avoid5discord = require('../lib/avoid5-discord.js');
 
 describe('avoid5-discord.handleMessage', function () {

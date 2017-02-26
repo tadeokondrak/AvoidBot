@@ -1,7 +1,9 @@
+/* eslint-env node, mocha */
+/* global sinon, expect */
 const avoid5reddit = require('../lib/avoid5-reddit.js');
 
 describe('avoid5-reddit.handlePost', function () {
-  let sandbox, post;
+  let sandbox, post, type;
   beforeEach(function () {
     sandbox = sinon.sandbox.create();
     post = {
