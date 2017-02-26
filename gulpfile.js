@@ -31,8 +31,6 @@ gulp.task('semistandard', () =>
     }))
 );
 
-gulp.task('watch', function () {
-  watch(sources.concat(tests), batch(function (events, done) {
-    gulp.start('test', done);
-  }));
+gulp.task('watch', function() {
+  gulp.watch(sources.concat(tests), ['tests', 'semistandard']);
 });
