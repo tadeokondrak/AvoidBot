@@ -5,11 +5,16 @@ const mocha = require('gulp-mocha');
 const watch = require('gulp-watch');
 const batch = require('gulp-batch');
 const semistandard = require('gulp-semistandard');
+const runSequence = require('run-sequence');
 
 const sources = ['main.js', './lib/**/*.js'];
 const tests = ['./test/*.test.js'];
 
-gulp.task('test', () =>
+gulp.task('test', function (cb) {
+  runSequence(['tests', 'semistandard'], cb);
+});
+
+gulp.task('tests', () =>
   gulp.src(tests, { read: false })
     .pipe(mocha({
       require: ['./test/setup.js'],
@@ -22,7 +27,7 @@ gulp.task('semistandard', () =>
     .pipe(semistandard())
     .pipe(semistandard.reporter('default', {
       breakOnError: true,
-      quiet: false
+      quiet: true
     }))
 );
 

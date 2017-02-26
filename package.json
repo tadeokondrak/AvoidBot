@@ -4,7 +4,7 @@
   "description": "A bot that assists you in avoiding fifthglyph.",
   "main": "main.js",
   "scripts": {
-    "test": "gulp test; gulp semistandard"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
     "gulp-semistandard": "^1.0.0",
     "gulp-watch": "^4.3.11",
     "mocha": "^3.2.0",
+    "run-sequence": "^1.2.2",
     "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0"
   }

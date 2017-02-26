@@ -1,7 +1,6 @@
 /**
  * main.js -- Program entry point.
  */
-
 const DiscordJS = require('discord.js');
 const Snoowrap = require('snoowrap');
 const Snoostorm = require('snoostorm');
