@@ -1,3 +1,5 @@
+'use strict';
+
 /* eslint-env node, mocha */
 /* global sinon, expect */
 const avoid5reddit = require('../lib/avoid5-reddit.js');
