@@ -6,7 +6,7 @@
   },
   "reddit": {
     "credentials": {
-      "userAgent": "AvoidBot - A bot that assists you in avoiding fifthglyphs.",
+      "userAgent": "nodejs:com.tadeokondrak.avoidbot:v.1.0.0",
       "clientId": "client id - get this from oauth",
       "clientSecret": "client secret - get this from oauth",
       "username": "username",
