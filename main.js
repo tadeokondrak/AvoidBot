@@ -25,13 +25,14 @@ Discord.on('message', avoid5discord.handleMessage);
 
 var commentStream = RedditStream.CommentStream({
   'subreddit': config.reddit.subreddit,
-  'results': 5,
-  'pollTime': 2000
+  'results': 10,
+  'pollTime': 5000
 });
 
 var submissionStream = RedditStream.SubmissionStream({
   'subreddit': config.reddit.subreddit,
-  'results': 5
+  'results': 10,
+  'pollTime': 5000
 });
 
 commentStream.on('comment', function (post) {
