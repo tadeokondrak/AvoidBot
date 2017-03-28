@@ -86,11 +86,11 @@ describe('avoid5.stripLinks', function () {
 
 describe('avoid5.splitMessage', function () {
   const scenarios = [
-    {input: 'Word1 word2 ■word3 word4 word5 word6', result: ['word2 ■word3 word4']},
-    {input: '█word1 word2 word3', result: ['█word1 word2']},
-    {input: 'word1 word2 ⬛word3', result: ['word2 ⬛word3']},
-    {input: '█word1 ■word2 ⬛word3', result: ['█word1 ■word2 ⬛word3']},
-    {input: '█word1 word2 ■word3 word4 word5', result: ['█word1 word2', '■word3 word4']},
+    {input: 'Word1 word2 ■word3 word4 word5 word6', result: ['■word3']},
+    {input: '█word1 word2 word3', result: ['█word1']},
+    {input: 'word1 word2 ⬛word3', result: ['⬛word3']},
+    {input: '█word1 ■word2 ⬛word3', result: ['█word1', '■word2', '⬛word3']},
+    {input: '█word1 word2 ■word3 word4 word5', result: ['█word1', '■word3']},
     {input: 'word1 word2 word3', result: null}
   ];
   scenarios.forEach(function (scenario) {
