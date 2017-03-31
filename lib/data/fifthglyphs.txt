@@ -1,0 +1,64 @@
+# fifthglyphs.txt
+#
+# What is a fifth glyph?
+#
+#   The term "fifth glyph" specifically refers to the fifth letter of the Latin
+#   alphabet, which may appear in uppercase (E) and lowercase (e) form.  It may
+#   be adorned with any number of diacritical marks.  It may also appear as one
+#   part of a ligature (Æ).
+#
+#   Additionally, the fifth glyph is often one of the most frequently-occurring
+#   letters within the languages using the Latin alphabet.  Avoiding use of the
+#   fifth glyph while writing can be a challenging yet fun exercise.
+#
+# What about other scripts?
+#
+#   Currently, there is no official definition for "fifth glyph" as applying to
+#   other writing systems.  While the Latin letter E might have a corresponding
+#   character in another script, it is not always the fifth letter, nor does it
+#   share the same appearance.
+#
+# What are look-alikes?
+#
+#   Among various scripts, there are many unrelated characters and symbols that
+#   are only visually similar to the Latin letter E.  These "look-alikes" might
+#   find use (or abuse) as lazy substitutions for fifth glyphs.
+#
+# When should look-alikes count as fifth glyphs?
+#
+#   In the case of look-alikes, intent is ultimately the deciding factor.  If a
+#   character or symbol is more likely to be used to bypass detection than used
+#   normally, then it should be treated the same as a fifth glyph.
+#
+#   Given most users will communicate in English, the Greek letter Sigma (Σ) or
+#   the Semitic letter Ayin (ع) are not expected to be used often.  To minimize
+#   potential abuse, these and other look-alikes will be restricted.
+#
+# What is NOT a fifth glyph?
+#
+#   Some look-alikes are exempt from exclusion and may be used.  As an example,
+#   the numeral three (3) in the Latin script resembles the Latin letter E only
+#   backwards; however, its use is permitted as it is more likely to be used as
+#   a numerical digit than as a stand-in for the fifth glyph.
+#
+#   The Elder Futhark letter *Sōwilō (ᛊ) has two forms, one of which does share
+#   a similar appearance to the fifth glyph.  However, its rendering depends on
+#   the font used, so it should not be excluded outright.
+#
+# What about <insert specific character>?
+#
+#   The current Unicode standard (9.0) contains over 128,000 characters pulling
+#   from 135 scripts as well as various symbol sets.  It is not a goal for this
+#   document to contain or mention every single look-alike glyph.  Rather, only
+#   the most obvious look-alikes should be included.  Consider that the Unicode
+#   standard supports combining characters, which could allow construction of a
+#   suitable look-alike from otherwise permitted components.  At the end of the
+#   day, it is simply not practical to proactively cover every glyph.
+#
+# What is the format of this document?
+#
+#   - This document MUST be encoded in UTF-8.
+#   - Each glyph MUST be separated by at least one whitespace character.
+#   - Any lines beginning with a hash mark (#) are comments and are ignored.
+
+E e € Œ œ £ Æ È É Ê Ë æ è é ê ë Ē ē Ĕ ĕ Ė ė Ę ę Ě ě Œ œ Ǝ Ə Ɛ Ƹ ƹ ǝ Ǣ ǣ Ǽ ǽ Ȅ ȅ Ȇ ȇ Ȩ ȩ Ɇ ɇ ɘ ə ɚ ɛ ɜ ɝ ɶ Έ Ε Σ έ ε ξ ϵ ϶ Ѐ Ё Є Е Э е э ѐ ё є Ѥ ѥ Ҽ ҽ Ҿ ҿ Ӕ ӕ Ӗ ӗ Ә ә Ӛ ӛ Ӭ ӭ Ԑ ԑ Ԙ ԙ ع غ ڠ ۼ ݝ ݞ ݟ ࡘ ٤ ६ ੬ ઇ ઈ ઘ છ દ ધ ૯ ଽ ల ౬ ౯ ౿ ಲ ೪ ೬ ຄ ຍ ခ ဆ ၔ ይ ደ ዴ ድ ዼ ዽ Ꭼ ᓬ ᕮ ᗕ ᗛ ᗴ ᘍ ᘿ ᙍ ᙓ ᙙ ᙠ ᙦ ᢄ ᣧ ᣯ ᣰ ᤉ ᤎ ᥱ ᦊ ᦏ ᦕ ᦚ ᦷ ᦾ ᧉ ៩ ᨦ ᨭ ᨹ ᨺ ᩀ ᪖ ᪗ ᬫ ᰀ ᰚ ᳮ ᴁ ᴂ ᴇ ᴔ ᴭ ᴱ ᴲ ᵆ ᵉ ᵊ ᵋ ᵫ ᶒ ᶓ ᶕ Ḕ ḕ Ḗ ḗ Ḙ ḙ Ḛ ḛ Ḝ ḝ Ẹ ẹ Ẻ ẻ Ẽ ẽ Ế ế Ề ề Ể ể Ễ ễ Ệ ệ ἐ ἑ ἒ ἓ ἔ ἕ Ἐ Ἑ Ἒ Ἓ Ἔ Ἕ ὲ έ Ὲ Έ ₑ ₔ ₠ € ℇ ℈ ℡ ℮ ℯ ℰ ⅀ ⅇ ↋ ∃ ∄ ∈ ∉ ∊ ∋ ∌ ∍ ∑ ⋲ ⋳ ⋴ ⋵ ⋶ ⋷ ⋸ ⋹ ⋺ ⋻ ⋼ ⋽ ⋾ ⋿ ⍷ ␃ ␄ ␅ ␇ ␐ ␗ ␙ ␛ ␡ ⒠ Ⓔ ⓔ ⥺ ⨊ ⨋ ⪪ ⪬ Ⱔ Ⱕ ⱔ ⱕ ⱸ ⱻ Ⲉ ⲉ ⴹ ⴺ ⵉ ⵟ モ ョ ヨ ㅌ ㋍ ㋎ ㋲ ㋵ ꏁ ꏂ ꑾ ꑿ ꒰ ꓰ ꓱ ꗋ ꗍ ꗨ ꗩ ꘒ ꘓ Ꜫ ꜫ ꟹ ꡀ ꢄ ꢅ ꢘ ꤕ ꤢ ꦌ ꦍ ꧖ ꫀ ꯐ Ｅ ｅ ｮ ﾓ ﾖ ￡ 🇪 📧 🔚 🆓 🆕

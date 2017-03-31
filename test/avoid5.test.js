@@ -4,9 +4,18 @@
 /* global expect */
 var avoid5 = require('../lib/avoid5.js');
 
+describe('avoid5.fifthglyphs', function () {
+  let subject = avoid5.fifthglyphs();
+
+  it('returns an array of non-empty strings', function () {
+    expect(subject).to.be.an('array').and.to.have.length.above(0);
+    subject.forEach(function (x) { expect(x).to.be.a('string').with.length.above(0); });
+  });
+});
+
 describe('avoid5.detect', function () {
-  const fifthglyphs = 'eĕêěɇėẹëèéēẽęæœɛɜəǝɘεеєэEĔÊĚɆĖẸËÈÉĒẼĘÆŒƐƏƎΕЕЄЭ€';
-  const emoji = [ '🇪', '📧', '🔚', '🆓', '🆕' ];
+  let fifthglyphs = avoid5.fifthglyphs();
+  let concatenated = fifthglyphs.join('');
 
   const scenarios = [
     { text: 'no fifthglyphs', expected: { count: 0, longestRun: 0, bolded: false } },
@@ -16,8 +25,8 @@ describe('avoid5.detect', function () {
     { text: 'bolded **eEeEe** run', expected: { count: 6, longestRun: 5, bolded: true } },
     { text: 'und__e__rscored bold', expected: { count: 2, longestRun: 1, bolded: true } },
     { text: 'bold italic **_e_**', expected: { count: 1, longestRun: 1, bolded: true } },
-    { text: 'all emoji: ' + emoji.join(''), expected: { count: 1 + emoji.length, longestRun: emoji.length, bolded: false } },
-    { text: 'all fifthglyphs: ' + fifthglyphs, expected: { count: fifthglyphs.length, longestRun: fifthglyphs.length, bolded: false } }
+    { text: 'all fifthglyphs: ' + concatenated,
+      expected: { count: fifthglyphs.length, longestRun: fifthglyphs.length, bolded: false } }
   ];
 
   scenarios.forEach(function (scenario) {
@@ -37,27 +46,16 @@ describe('avoid5.detect', function () {
 });
 
 describe('avoid5.mask', function () {
-  const lowercase = 'eĕêěɇėẹëèéēẽęæœɛɜəǝɘεеєэ';
-  const uppercase = 'EĔÊĚɆĖẸËÈÉĒẼĘÆŒƐƏƎΕЕЄЭ€';
-  const emoji = [ '🇪', '📧', '🔚', '🆓', '🆕' ];
-  const lowermask = '■';
-  const uppermask = '█';
-  const emojimask = '⬛';
+  let fifthglyphs = avoid5.fifthglyphs();
+  let concatenated = fifthglyphs.join('');
+  const mask = '■';
 
   it('hides any fifthglyphs that appear in the text', function () {
-    expect(avoid5.mask('Example text.')).to.be.eq('█xampl■ t■xt.');
+    expect(avoid5.mask('Example text: ℮ 🇪')).to.be.eq('■xampl■ t■xt: ■ ■');
   });
 
-  it('hides all lowercase fifthglyphs', function () {
-    expect(avoid5.mask(lowercase)).to.be.eq(lowermask.repeat(lowercase.length));
-  });
-
-  it('hides all uppercase fifthglyphs', function () {
-    expect(avoid5.mask(uppercase)).to.be.eq(uppermask.repeat(uppercase.length));
-  });
-
-  it('hides all emoji fifthglyphs', function () {
-    expect(avoid5.mask(emoji.join(''))).to.be.eq(emojimask.repeat(emoji.length));
+  it('hides all fifthglyphs', function () {
+    expect(avoid5.mask(concatenated)).to.be.eq(mask.repeat(fifthglyphs.length));
   });
 });
 
@@ -87,10 +85,10 @@ describe('avoid5.stripLinks', function () {
 describe('avoid5.splitMessage', function () {
   const scenarios = [
     {input: 'Word1 word2 ■word3 word4 word5 word6', result: ['■word3']},
-    {input: '█word1 word2 word3', result: ['█word1']},
-    {input: 'word1 word2 ⬛word3', result: ['⬛word3']},
-    {input: '█word1 ■word2 ⬛word3', result: ['█word1', '■word2', '⬛word3']},
-    {input: '█word1 word2 ■word3 word4 word5', result: ['█word1', '■word3']},
+    {input: '■word1 word2 word3', result: ['■word1']},
+    {input: 'word1 word2 ■word3', result: ['■word3']},
+    {input: '■word1 ■word2 ■word3', result: ['■word1', '■word2', '■word3']},
+    {input: '■word1 word2 ■word3 word4 word5', result: ['■word1', '■word3']},
     {input: 'word1 word2 word3', result: null}
   ];
   scenarios.forEach(function (scenario) {

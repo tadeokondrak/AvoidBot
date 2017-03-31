@@ -89,7 +89,7 @@ describe('avoid5-reddit.handlePost', function () {
       post.selftext = '/u/test u/test /u/TEST u/TEST /u/te_st u/te_st message';
       avoid5reddit.handlePost(post, type);
       expect(post.subreddit.banUser).not.to.have.been.called;
-      expect(post.reply).to.have.been.calledWithMatch(/^Fifthglyphs found in your post:[\s\S]*?m■ssag■/i);
+      expect(post.reply).to.have.been.calledWithMatch(/^Fifthglyphs found in your post:\s*>m■ssag■/i);
     });
   });
   context('comment:', function () {
@@ -154,7 +154,7 @@ describe('avoid5-reddit.handlePost', function () {
       post.body = '/u/test u/test /u/TEST u/TEST /u/te_st u/te_st message';
       avoid5reddit.handlePost(post, type);
       expect(post.subreddit.banUser).not.to.have.been.called;
-      expect(post.reply).to.have.been.calledWithMatch(/^Fifthglyphs found in your post:[\s\S]*?m■ssag■/i);
+      expect(post.reply).to.have.been.calledWithMatch(/^Fifthglyphs found in your post:\s*>m■ssag■/i);
     });
   });
 });
