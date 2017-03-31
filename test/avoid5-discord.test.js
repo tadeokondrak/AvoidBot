@@ -105,7 +105,7 @@ describe('avoid5-discord.handleMessage', function () {
   });
 
   it('replies without any mentions included', function () {
-    message.content = '@here @everyone <@1234567890><@!1234567890><#1234567890><@&1234567890> message';
+    message.content = '@here @everyone <@1234567890><@!1234567890><#1234567890><@&1234567890><:emote:1234567890> message';
     avoid5discord.handleMessage(message);
     expect(message.member.kick).not.to.have.been.called;
     expect(message.reply).to.have.been.calledWithMatch(/^fifthglyphs found:\s*m■ssag■/i);
@@ -113,7 +113,8 @@ describe('avoid5-discord.handleMessage', function () {
 });
 
 describe('avoid5-discord.stripMentions', function () {
-  const mentions = [ '@here', '@everyone', '<@1234567890>', '<@!1234567890>', '<#1234567890>', '<@&1234567890>' ];
+  const mentions = [ '@here', '@everyone', '<@1234567890>', '<@!1234567890>',
+    '<#1234567890>', '<@&1234567890>', '<:emote:1234567890>' ];
   mentions.forEach(function (mention) {
     let text = 'Before ' + mention + ' After';
     context('when provided "' + text + '" as input', function () {
