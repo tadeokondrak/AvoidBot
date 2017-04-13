@@ -15,24 +15,34 @@ const globs = {
 const all = Array.prototype.concat.apply([], Object.keys(globs).map(x => globs[x]));
 
 // Default meta-task.
-gulp.task('default', ['test']);
+gulp.task('default', CI ? ['test'] : ['watch']);
 
 // Test meta-task.
-const runSequence = require('run-sequence').use(gulp);
-
-const noStack = function (done) {
-  return function (err) {
-    if (err) {
-      err.showStack = false;
-      done(err);
+const runAllTasks = function (tasksToRun, callback) {
+  let anyErrors = false;
+  const runNextTask = function (result) {
+    anyErrors = anyErrors || (result && result.err);
+    if (tasksToRun.length) {
+      gulp.start(tasksToRun.shift());
     } else {
-      done();
+      gulp.removeListener('task_stop', runNextTask);
+      gulp.removeListener('task_err', runNextTask);
+      if (anyErrors) {
+        let error = new Error('One or more tasks failed.  (See above for details)');
+        error.showStack = false;
+        callback(error);
+      } else {
+        callback();
+      }
     }
   };
+  gulp.on('task_stop', runNextTask);
+  gulp.on('task_err', runNextTask);
+  runNextTask();
 };
 
 gulp.task('test', function (done) {
-  runSequence('semistandard-lint', 'mocha-test', noStack(done));
+  runAllTasks(['semistandard-lint', 'mocha-test'], done);
 });
 
 // Watch meta-task.
