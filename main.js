@@ -23,6 +23,10 @@ Discord.on('ready', () => {
 
 Discord.on('message', avoid5discord.handleMessage);
 
+Discord.on('messageUpdate', (oldMessage, newMessage) => {
+  avoid5discord.handleMessage(newMessage);
+});
+
 var commentStream = RedditStream.CommentStream({
   'subreddit': config.reddit.subreddit,
   'results': 10,
