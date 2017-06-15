@@ -90,7 +90,7 @@ describe('avoid5-discord.handleMessage', function () {
       });
       it('logs the kick action', function () {
         expect(message.client.channels.get).to.have.been.calledWith('LOGGING');
-        expect(logChannel.sendMessage).to.have.been.calledWithMatch(/^AUTHOR was kicked.$/i);
+        expect(logChannel.sendMessage).to.have.been.calledWithMatch(/^Kicking AUTHOR$/i);
       });
       it('kicks the user', function () { expect(message.member.kick).to.have.been.called; });
       it('does not reply to the message', function () { expect(message.reply).not.to.have.been.called; });
