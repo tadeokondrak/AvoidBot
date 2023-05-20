@@ -3,10 +3,30 @@
 /**
  * main.js -- Program entry point.
  */
+
+require('dotenv').config()
+
+const config = {
+    discord: {
+        token: process.env.AVOIDBOT_DISCORD_TOKEN || "",
+        ignoredChannels: (process.env.AVOIDBOT_DISCORD_IGNORED_CHANNELS || "").split(":"),
+        logChannel: process.env.AVOIDBOT_DISCORD_LOG_CHANNEL || ""
+    },
+    reddit: {
+        credentials: {
+            userAgent: process.env.AVOIDBOT_REDDIT_USER_AGENT || "",
+            clientId: process.env.AVOIDBOT_REDDIT_CLIENT_ID || "",
+            clientSecret: process.env.AVOIDBOT_REDDIT_CLIENT_SECRET || "",
+            username: process.env.AVOIDBOT_REDDIT_USERNAME || "",
+            password: process.env.AVOIDBOT_REDDIT_PASSWORD || ""
+        },
+        subreddit: process.env.AVOIDBOT_REDDIT_SUBREDDIT || ""
+    }
+}
+
 const DiscordJS = require('discord.js');
 const Snoowrap = require('snoowrap');
 const Snoostorm = require('snoostorm');
-const config = require('./config.json');
 const avoid5discord = require('./lib/avoid5-discord.js');
 const avoid5reddit = require('./lib/avoid5-reddit.js');
 const Discord = new DiscordJS.Client();

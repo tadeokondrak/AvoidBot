@@ -21,6 +21,7 @@
   "homepage": "https://github.com/TadeoKondrak/AvoidBot#readme",
   "dependencies": {
     "discord.js": "^11.0.0",
+    "dotenv": "^16.0.3",
     "snoostorm": "0.0.5",
     "snoowrap": "^1.12.0"
   },

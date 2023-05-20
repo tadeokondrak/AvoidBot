@@ -5,9 +5,6 @@
 
 A bot that assists you in avoiding fifthglyphs.
 
-# Installation
-Clone the repository and run `npm install`. Copy the sample config to `config.json` and fill in the fields. Run `main.js`.
-
 # Contributing
 If you find any bugs or have suggestions, file an [issue](https://github.com/TadeoKondrak/AvoidBot/issues).
 
